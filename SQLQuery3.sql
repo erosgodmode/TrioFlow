@@ -1,0 +1,16 @@
+USE TrioFlowDB;
+GO
+
+IF OBJECT_ID('Orders', 'U') IS NOT NULL
+    DROP TABLE Orders;
+GO
+
+CREATE TABLE Orders (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    CustomerName NVARCHAR(100) NOT NULL,
+    Address NVARCHAR(200) NOT NULL,
+    Service NVARCHAR(50) NOT NULL,
+    Gallons INT NOT NULL,
+    TotalPrice INT NOT NULL,
+    OrderDate DATETIME DEFAULT GETDATE()
+);
